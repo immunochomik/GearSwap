@@ -1,0 +1,21 @@
+{
+  "name": "gearswap",
+  "version": "0.0.1",
+  "description": "",
+  "main": "build.js",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "vue": "2.1.0",
+    "jquery": "3.*"
+  },
+  "devDependencies": {
+    "clean-css": "^4.0.6",
+    "node-minify": "^2.0.3",
+    "uglifyjs": "^2.4.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tswider",
+  "license": "MIT"
+}

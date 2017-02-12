@@ -1,0 +1,27 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+  <title>{% block title %}Page Titpe{% endblock %}</title>
+  {% endblock %}
+  <link rel="stylesheet" type="text/css" href="{% static 'core/css/build.min.css' %}" />
+  <script href="{% static 'core/js/build.min.js' %}" ></script>
+</head>
+<body>
+{% include 'core/topnav.html' %}
+{% if messages %}
+<div class=container-fluid>
+  {% for message in messages %}
+  <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    %% message %%
+  </div>
+  {% endfor %}
+</div>
+  {% endif %}
+<div id="content">{% block content %}{% endblock %}</div>
+<div id="footer"></div>
+</body>
+</html>
+
