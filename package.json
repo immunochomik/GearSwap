@@ -4,9 +4,9 @@
   "description": "",
   "main": "build.js",
   "dependencies": {
-    "bootstrap": "^3.3.5",
-    "vue": "2.1.0",
-    "jquery": "3.*"
+    "bootstrap": "^3.3.7",
+    "jquery": "3.*",
+    "vue": "2.1.0"
   },
   "devDependencies": {
     "clean-css": "^4.0.6",
