@@ -2,10 +2,10 @@ from django.conf.urls import url
 import django.contrib.auth.views as auth_views
 from . import views
 
-
+app_name = 'account'
 urlpatterns = [
     # url(r'^login/$', views.user_login, name='login'),
-    url(r'^$', views.dashboard, name='dashboard'),
+    url(r'^dashboard/', views.dashboard, name='dashboard'),
 
     url(r'^register/$', views.register, name='register'),
     url(r'^edit/$', views.edit, name='edit'),

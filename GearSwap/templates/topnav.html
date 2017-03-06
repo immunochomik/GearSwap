@@ -7,12 +7,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Gear Surff</a>
+      <a class="navbar-brand" href="/">Gear Surf</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li id="topNavLiHome" class="nav-li"><a href="/account/login">Login</a></li>
-        <li id="topNavLiAbout" class="nav-li"><a href="/account/register">Register</a></li>
+        {% if request.user.is_authenticated %}
+    
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Hello {{ request.user.username }}<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu">
+                <li class="nav-li"><a href="{% url "account:logout" %}">Logout</a></li>
+                <li class="nav-li"><a href="{% url "account:dashboard" %}">Dashboard</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Trash</a></li>
+            </ul>
+        </li>
+       
+        {% else %}
+        <li class="nav-li"><a href="{% url "account:login" %}">Login</a></li>
+        <li class="nav-li"><a href="{% url "account:register" %}">Register</a></li>
+        {% endif %}
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container-fluid -->

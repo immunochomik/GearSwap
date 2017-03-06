@@ -14,8 +14,8 @@ new compressor.minify({
   compressor: mimficator,
   input: [
     'node_modules/jquery/dist/jquery.js',
-    'node_modules/vue/dist/vue.js',
     'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/vue/dist/vue.js',
     'core/assets/js/main.js',
   ],
   output: 'core/static/core/js/build.min.js',

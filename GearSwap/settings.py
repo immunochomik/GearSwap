@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sorl.thumbnail',
     'social.apps.django_app.default',
+    'common',
+    'bootstrapform'
+    #'django_showurls'
 ]
 
 MIDDLEWARE = [
