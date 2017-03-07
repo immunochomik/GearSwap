@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block title %}Add Gear{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form class="form-horizontal" role="form" method="post" action="{% url 'gear:add' %}" enctype="multipart/form-data">
+
+      {% csrf_token %}
+      {{ gear_form | bootstrap_horizontal }}
+
+      {{ form_set.management_form }}
+      {% for form in form_set %}
+        {{ form | bootstrap_horizontal }}
+      {% endfor %}
+      <div class="form-group">
+        <input class="form-control btn btn-default " type="submit" value="Submit">
+      </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
