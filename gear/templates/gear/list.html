@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block title %}Add Gear{% endblock %}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>Filters</h3>
+        </div>
+    </div>
+    <div class="panel panel-default" style="min-height: 30em">
+      <div class="panel-body">
+        <h4>What's happening</h4>
+        <div id="action-list">
+          <hr> {% for action in actions %}
+          {% include "actions/action/detail.html" %}
+          <hr> {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <h3>Gear</h3>
+    {% for item in gear_items %}
+      <p>{{item.manufacturer}} {{item.model}} {{item.manufacture_year}}</p>
+    {% endfor %}
+    {% include "pagination.html" with page=gear_items %}
+  </div>
+</div>
+</div>
+{% endblock %}

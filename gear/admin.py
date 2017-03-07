@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import Gear, GearImage
 
-# Register your models here.
+class GearImageInline(admin.TabularInline):
+    model = GearImage
+
+class GearAdmin(admin.ModelAdmin):
+
+    inlines = [GearImageInline]
+
+admin.site.register(Gear, GearAdmin)

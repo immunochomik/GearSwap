@@ -22,3 +22,13 @@ def create_action(user, verb, target=None):
         action.save()
         return True
     return False
+
+def prepare_acctions(user=None, limit=10):
+    actions = Action.objects.all()
+    if user:
+        actions.exclude(user=user)
+        following_ids = user.following.values_list('id', flat=True)
+        if following_ids:
+            # If user is following others, retrieve only their actions
+            actions = actions.filter(user_id__in=following_ids).select_related('user', 'user__profile').prefetch_related('target')
+    return actions[:limit]

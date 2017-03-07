@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sorl.thumbnail',
-    'social.apps.django_app.default',
+    #'social.apps.django_app.default',
     'common',
     'bootstrapform'
     #'django_showurls'

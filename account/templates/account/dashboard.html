@@ -9,9 +9,8 @@
         <div class="panel-body">
           <h4>Options</h4>
           <ul class="list-unstyled">
-            <li><a href="{% url "account:edit" %}">edit profile</a></li>
-            <li><a href="{% url "account:password_change+
-              " %}">change password</a></li>
+            <li><a href="{% url 'account:edit' %}">edit profile</a></li>
+            <li><a href="{% url 'account:password_change' %}">change password</a></li>
           </ul>
         </div>
       </div>
@@ -19,7 +18,8 @@
         <div class="panel-body">
           <h4>What's happening</h4>
           <div id="action-list">
-            <hr> {% for action in actions %} {% include "actions/action/detail.html" %}
+            <hr> {% for action in actions %}
+              {% include "actions/action/detail.html" %}
             <hr> {% endfor %}
           </div>
         </div>
@@ -30,7 +30,7 @@
 
 
       <p>Welcome to your dashboard. </p>
-      <a href="{% url "gear:add" %}"><button class="btn btn-default">Add Gear</button></a>
+      <a href="{% url 'gear:add' %}"><button class="btn btn-default">Add Gear</button></a>
     </div>
   </div>
 
