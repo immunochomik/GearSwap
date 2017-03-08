@@ -24,7 +24,7 @@
   <div class="col-sm-8">
     <h3>Gear</h3>
     {% for item in gear_items %}
-      <p>{{item.manufacturer}} {{item.model}} {{item.manufacture_year}}</p>
+      <p>{{item.manufacturer}} {{item.model}} {{item.get_manufacture_year_display}}</p>
     {% endfor %}
     {% include "pagination.html" with page=gear_items %}
   </div>

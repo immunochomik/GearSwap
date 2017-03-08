@@ -1,13 +1,25 @@
 import uuid
-
+import os
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
+from django.core.exceptions import ValidationError
+
 
 def year_choices(n = 10):
     return tuple(zip([i for i in range(0, n)],[y for y in range(2018 - n, 2018)]))
 
+
+def upload_gear_image(instance, filename):
+    return 'gear_images/{0}.{1}'.format(
+        str(uuid.uuid4()),
+        filename.rsplit('.', 1)[1])
+
+def validate_image(fieldfile_obj):
+    megabyte_limit = 2
+    if  fieldfile_obj.file.size > megabyte_limit*1024*1024:
+        raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
 
 class Gear(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -26,16 +38,14 @@ class Gear(models.Model):
     serial_no = models.CharField(max_length=500)
     form_factor = models.PositiveSmallIntegerField(choices=((0, 'rack'), (1, 'desktop')))
     state = models.PositiveSmallIntegerField(choices=((0, 'bad'), (1, 'ok'), (2, 'mint')))
+    main_image = models.ImageField(upload_to=upload_gear_image, validators=[validate_image])
 
-
-def upload_gear_image(instance, filename):
-    return 'gear_images/' + str(uuid.uuid4())
 
 class GearImage(models.Model):
     id = models.BigAutoField(primary_key=True)
     gear = models.ForeignKey(Gear, on_delete=models.CASCADE,
                                 related_name='gear_image')
-    image = models.ImageField(upload_to=upload_gear_image)
+    image = models.ImageField(upload_to=upload_gear_image, validators=[validate_image])
 
 
 def upload_manual(instance, filename):

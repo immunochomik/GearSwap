@@ -3,7 +3,6 @@
 from django import forms
 from .models import Gear, GearImage
 
-
 class GearAddForm(forms.ModelForm):
 
     class Meta:
@@ -17,11 +16,15 @@ class GearAddForm(forms.ModelForm):
             'qty',
             'rack_units',
             'form_factor',
-            'state'
+            'state',
+            'main_image'
             )
         widgets = {
-            'note':forms.Textarea
+            'note':forms.Textarea(),
+            'qty':forms.NumberInput({'value':'1'}),
+            'rack_units':forms.NumberInput({'value':'0'}),
         }
+
 
 class GearImageForm(forms.ModelForm):
     image = forms.ImageField(label='Image')

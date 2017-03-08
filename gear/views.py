@@ -37,12 +37,11 @@ def gear_list(request):
 def add(request):
     ImageFormSet = modelformset_factory(GearImage, form=GearImageForm, extra=3)
     form_set = ImageFormSet(queryset=GearImage.objects.none())
-    gear_form = GearAddForm(request.POST)
+    gear_form = GearAddForm(request.POST, request.FILES)
 
     if request.method == 'POST':
         form_set = ImageFormSet(request.POST, request.FILES,
                             queryset=GearImage.objects.none())
-
         if gear_form.is_valid() and form_set.is_valid():
             from datetime import datetime
             gear_instance = gear_form.save(commit=False)
