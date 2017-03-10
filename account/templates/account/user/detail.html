@@ -22,16 +22,13 @@
                 Unfollow
             {% endif %}
         </a>
-        <div id="image-list" class="image-container">
-            {% include "images/image/list_ajax.html" with images=user.images_created.all %}
-        </div>
     {% endwith %}
 {% endblock %}
 
 {% block domready %}
     $('a.follow').click(function(e){
         e.preventDefault();
-        $.post('{% url "user_follow" %}',
+        $.post('{% url "account:user_follow" %}',
             {
                 id: $(this).data('id'),
                 action: $(this).data('action')

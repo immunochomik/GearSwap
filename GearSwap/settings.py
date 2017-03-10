@@ -167,6 +167,10 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: "/account/users/%s/" % u.username,
+}
+
 SOCIAL_AUTH_FACEBOOK_KEY = ''
 SOCIAL_AUTH_FACEBOOK_SECRET = ''
 

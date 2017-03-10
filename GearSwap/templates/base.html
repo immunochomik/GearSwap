@@ -4,28 +4,48 @@
 <html lang="en">
 
 <head>
-    {% block head %}
-    <title>{% block title %}Page Titpe{% endblock %}</title>
-    {% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'core/css/build.min.css' %}" />
+  {% block head %}
+  <title>{% block title %}Page Titpe{% endblock %}</title>
+  {% endblock %}
+  <link rel="stylesheet" type="text/css" href="{% static 'core/css/build.min.css' %}" />
 
 </head>
 
 <body>
-    {% include 'topnav.html' %} {% if messages %}
-    <div class=container-fluid>
-        {% for message in messages %}
-        <div class="alert alert-warning">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ message }}
-        </div>
-        {% endfor %}
-    </div>
-    {% endif %}
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-        {% random_number as rand_id %}
-        <script src="{% static 'core/js/build.min.js' %}?r={{ rand_id }}"></script>
-    </div>
-</body>
+{% include 'topnav.html' %} {% if messages %}
+<div class=container-fluid>
+  {% for message in messages %}
+  <div class="alert {{ message.tags }}">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ message }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+<div id="content">{% block content %}{% endblock %}</div>
+<div id="footer">
+</div>
+{% random_number as rand_id %}
+<script src="{% static 'core/js/build.min.js' %}?r={{ rand_id }}"></script>
+<script>
+  var csrftoken = $.cookie('csrftoken');
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
 
+  $(document).ready(function(){
+    {% block domready %}
+    {% endblock %}
+  });
+</script>
+
+</body>
 </html>
