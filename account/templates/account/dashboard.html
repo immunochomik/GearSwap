@@ -10,7 +10,7 @@
           <h4>Options</h4>
           <ul class="list-unstyled">
             <li><a href="{% url 'account:edit' %}">edit profile</a></li>
-            <li><a href="{% url 'account:password_change' %}">change password</a></li>
+            <li><a href="{% url 'password_change' %}">change password</a></li>
           </ul>
         </div>
       </div>
@@ -27,10 +27,10 @@
     </div>
     <div class="col-sm-8">
       <h1>Dashboard</h1>
-
-
       <p>Welcome to your dashboard. </p>
       <a href="{% url 'gear:add' %}"><button class="btn btn-default">Add Gear</button></a>
+      <h3>Gear</h3>
+      {% include "gear/partials/list.html" with gear_items=request.user.gear_owned.all %}
     </div>
   </div>
 

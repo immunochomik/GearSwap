@@ -1,0 +1,18 @@
+{% load thumbnail %}
+{% for item in gear_items %}
+<div class="gear-row">
+  <a href="{{ item.get_absolute_url }}">
+    {% thumbnail item.main_image "120x120" crop="100%" as im %}
+    <img class="img-thumbnail" src="{{ im.url }}"  width="120" height="120">
+    {% endthumbnail %}
+  </a>
+  <div class="info" style="display: inline-block; vertical-align: top">
+    <p ><b>{{item.manufacturer}} {{item.model}} {{item.get_manufacture_year_display}}</b></p>
+    <p> {{item.note }} </p>
+  </div>
+</div>
+{% if not forloop.last %}
+<hr>
+{% endif %}
+{% endfor %}
+{% include "pagination.html" with page=gear_items %}

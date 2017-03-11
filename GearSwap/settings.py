@@ -25,7 +25,9 @@ SECRET_KEY = '-vzf%*fh_v1$i8vo83k1nz3mm@fpqd06--d-xzm#mvu^81jy9x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '8331cb61.ngrok.io'
+]
 
 
 # Application definition
@@ -36,6 +38,7 @@ INSTALLED_APPS = [
     'images',
     'actions',
     'gear',
+    'passwords',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

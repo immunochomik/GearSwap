@@ -12,6 +12,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-li"><a href="{% url 'gear:list' %}">Gear</a></li>
+        <li class="nav-li"><a href="{% url 'account:user_list' %}">Users</a></li>
         {% if request.user.is_authenticated %}
 
         <li class="dropdown">

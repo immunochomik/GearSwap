@@ -1,22 +1,30 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load static %}
 
 {% block title %}People{% endblock %}
 
 {% block content %}
-    <h1>People</h1>
-    <div id="people-list">
+    <div class="container-fluid">
+      <h1>People</h1>
+      <div id="people-list">
         {% for user in users %}
-            <div class="user">
-                <a href="{{ user.get_absolute_url }}">
-                    {% thumbnail user.profile.photo "180x180" crop="100%" as im %}
-                        <img src="{{ im.url }}">
-                    {% endthumbnail %}
-                </a>
-                <div class="info">
-                    <a href="{{ user.get_absolute_url }}" class="title">{{ user.get_full_name }}</a>
-                </div>
-            </div>
+        <div class="user" style="display: inline-block">
+          <a href="{{ user.get_absolute_url }}">
+            {% thumbnail user.profile.photo "120x120" crop="100%" as im %}
+            <img class="img-thumbnail" src="{{ im.url }}"  width="120" height="120">
+            {% empty %}
+              <img src="{% static 'core/img/feynman.jpg' %}" class="img-thumbnail" width="120" height="120">
+            {% endthumbnail %}
+          </a>
+          <div class="info" style="display: inline-block; vertical-align: top">
+            <a href="{{ user.get_absolute_url }}" class="title">{{ user.get_full_name }}</a>
+          </div>
+        </div>
+        {% if not forloop.last %}
+        <hr>
+        {% endif %}
         {% endfor %}
+      </div>
     </div>
 {% endblock %}
