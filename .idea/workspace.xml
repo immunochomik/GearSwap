@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86d0956c-ceff-4658-8a03-fb92853ad467" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GearSwap/templates/base.html" afterPath="$PROJECT_DIR$/GearSwap/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/static/core/js/build.min.js" afterPath="$PROJECT_DIR$/core/static/core/js/build.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gear/templates/gear/partials/list.html" afterPath="$PROJECT_DIR$/gear/templates/gear/partials/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/js/main.js" afterPath="$PROJECT_DIR$/core/assets/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gear/models.py" afterPath="$PROJECT_DIR$/gear/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GearSwap/settings.py" afterPath="$PROJECT_DIR$/GearSwap/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gear/urls.py" afterPath="$PROJECT_DIR$/gear/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gear/views.py" afterPath="$PROJECT_DIR$/gear/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="GearSwap.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +65,8 @@
           <file leaf-file-name="details.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/gear/templates/gear/details.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.37633136">
-                  <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+                <state vertical-scroll-proportion="0.41301775">
+                  <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -140,8 +132,8 @@
           <file leaf-file-name="list.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/gear/templates/gear/partials/list.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.22011834">
-                  <caret line="6" column="22" selection-start-line="5" selection-start-column="9" selection-end-line="6" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.25680473">
+                  <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
@@ -356,7 +348,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -836,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gear/templates/gear/partials/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22011834">
-          <caret line="6" column="22" selection-start-line="5" selection-start-column="9" selection-end-line="6" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.25680473">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -846,8 +838,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gear/templates/gear/details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37633136">
-          <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.41301775">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
