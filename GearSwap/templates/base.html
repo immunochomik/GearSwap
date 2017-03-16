@@ -28,7 +28,7 @@
 {% random_number as rand_id %}
 <script src="{% static 'core/js/build.min.js' %}?r={{ rand_id }}"></script>
 <script>
-  var csrftoken = $.cookie('csrftoken');
+  var csrftoken = getCookie('csrftoken');
   function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));

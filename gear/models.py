@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.urlresolvers import reverse
 
 
 def year_choices(n = 10):
@@ -40,11 +41,17 @@ class Gear(models.Model):
     state = models.PositiveSmallIntegerField(choices=((0, 'bad'), (1, 'ok'), (2, 'mint')))
     main_image = models.ImageField(upload_to=upload_gear_image, validators=[validate_image])
 
+    class Meta:
+        ordering = ['-id']
+
+    def get_absolute_url(self):
+        ''' get absolute url '''
+        return reverse('gear:details', args=[self.id])
 
 class GearImage(models.Model):
     id = models.BigAutoField(primary_key=True)
     gear = models.ForeignKey(Gear, on_delete=models.CASCADE,
-                                related_name='gear_image')
+                                related_name='gear_images')
     image = models.ImageField(upload_to=upload_gear_image, validators=[validate_image])
 
 

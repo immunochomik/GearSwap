@@ -1,7 +1,7 @@
 {% load thumbnail %}
 {% for item in gear_items %}
 <div class="gear-row">
-  <a href="{{ item.get_absolute_url }}">
+  <a href="{{ item.get_absolute_url }}" data-foo="bar">
     {% thumbnail item.main_image "120x120" crop="100%" as im %}
     <img class="img-thumbnail" src="{{ im.url }}"  width="120" height="120">
     {% endthumbnail %}

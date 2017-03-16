@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Gear Item Details{% endblock %}
+{% block content %}
+<style>
+  .holder {
+    width: 350px;
+  }
+  .bigpic img {
+    width: 340px;
+    height: 300px;
+  }
+  .littlepic {
+  }
+  .littlepic img {
+    width: 100%;
+    height: 100%;
+  }
+  .floating-box {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin-top: 5px;
+  }
+  .after-box {
+
+  }
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }
+  .full-img {
+    display: none;
+  }
+</style>
+
+<div class="container">
+  <div class="row panel panel-default">
+
+      <div class="col-lg-4 col-md-5 col-sm-6">
+        <div class="panel-body">
+          <div class="holder">
+          <div class="bigpic after-box">
+            <img class="img-thumbnail" src="/media/{{ item.main_image }}" />
+          </div>
+          <div class="little-pictures" style="text-align: center">
+            <div class="floating-box littlepic">
+              <img class="img-thumbnail" src="/media/{{ item.main_image }}" />
+            </div>
+            {% for image in item.gear_images.all %}
+            <div class="floating-box littlepic">
+              <img class="img-thumbnail" src="/media/{{ image.image }}" />
+            </div>
+            {% endfor %}
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-7 col-sm-6" style="padding-top: 2em;">
+
+        <div class="details-row">
+          <label class="control-label">Manufacturer</label>
+          <p>{{item.manufacturer}}</p>
+        </div>
+        <div class="details-row">
+          <label class="control-label">Model</label>
+          <p>{{item.model}}</p>
+        </div>
+        <div class="details-row">
+          <label class="control-label">Year</label>
+          <p>{{item.get_manufacture_year_display}}</p>
+        </div>
+        <div class="details-row">
+          <label class="control-label">Note</label>
+          <p>{{item.note}}</p>
+        </div>
+        <div class="details-row">
+          <label class="control-label">State</label>
+          <p>{{item.get_state_display}}</p>
+        </div>
+        <div class="details-row">
+          <label class="control-label">Rack units</label>
+          <p>{{item.rack_units}}</p>
+        </div>
+        <div class="details-row">
+          <label class="control-label">Serial no</label>
+          <p>{{item.serial_no}}</p>
+        </div>
+        <div class="details-row">
+          <label class="control-label">Form factor</label>
+          <p>{{item.form_factor}}</p>
+        </div>
+      </div>
+  </div>
+</div>
+<div id="full-size-img-div" class="centered full-img" style="z-index: 1000000" >
+  <img class="img-thumbnail" id="full-size-img" style="max-width: 95%;"/>
+</div>
+{% endblock %}
+{% block domready %}
+$('.littlepic img').on('click', function(){
+  $('.bigpic').html('');
+  $(this).clone().appendTo('.bigpic');
+});
+$('.bigpic').on('click', 'img', function(e) {
+    var src = $(this).attr('src');
+    $('#full-size-img').attr('src', src);
+    $('#full-size-img-div').toggle();
+});
+$('#full-size-img').on('click', function(e) {
+  $('#full-size-img-div').toggle();
+});
+
+
+{% endblock %}
