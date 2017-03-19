@@ -26,7 +26,7 @@ SECRET_KEY = '-vzf%*fh_v1$i8vo83k1nz3mm@fpqd06--d-xzm#mvu^81jy9x'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8331cb61.ngrok.io',
+    '8eb2b086.ngrok.io',
     'localhost'
 ]
 
@@ -49,8 +49,9 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     #'social.apps.django_app.default',
     'common',
-    'bootstrapform'
+    'bootstrapform',
     #'django_showurls'
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

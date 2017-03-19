@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block title %}Add Gear{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>Do yo realy want to delete item:</h3>
+      <hr>
+      {% include 'gear/partials/gear_row.html' %}
+      <hr>
+      <div style="text-align:right">
+      <form  role="form" method="post" action="{% url 'gear:delete' gear_id=item.id %}"
+             style="display: inline-block" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group" style="padding: 0 1em">
+          <input class="btn btn-danger " type="submit" value="Delete it">
+        </div>
+      </form>
+      <a href="{{ item.get_absolute_url }}" class="btn btn-default">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

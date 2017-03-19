@@ -39,8 +39,15 @@
 </style>
 
 <div class="container">
+  {% if request.user == item.owner %}
   <div class="row panel panel-default">
-
+      <div class="panel-body" style="text-align: right">
+        <a href="{% url 'gear:delete' gear_id=item.id %}"  class="btn btn-danger">Delete that crap</a>
+        <a href="{% url 'gear:edit' gear_id=item.id %}" class="btn btn-default">Edit the fuck of that shit</a>
+      </div>
+  </div>
+  {% endif %}
+  <div class="row panel panel-default">
       <div class="col-lg-4 col-md-5 col-sm-6">
         <div class="panel-body">
           <div class="holder">
@@ -95,6 +102,7 @@
           <p>{{item.form_factor}}</p>
         </div>
       </div>
+
   </div>
 </div>
 <div id="full-size-img-div" class="centered full-img" style="z-index: 1000000" >
